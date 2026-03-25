@@ -239,6 +239,8 @@ O `Streamlit` permite:
 - visualizar amostras previstas no conjunto de teste
 - inspecionar métricas da versão treinada
 
+![Interface do Streamlit](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/LLM-severidade-de-incidentes/assets/streamlit_dashboard.jpg)
+
 ### Como executar
 
 ```bash
@@ -458,3 +460,5 @@ The `Streamlit` app allows you to:
 - test a new incident manually
 - inspect predicted samples from the test set
 - review the current trained metrics
+
+![Streamlit interface](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/LLM-severidade-de-incidentes/assets/streamlit_dashboard.jpg)
