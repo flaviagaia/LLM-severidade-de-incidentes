@@ -1,0 +1,8 @@
+{
+  "accuracy": 0.6833,
+  "macro_f1": 0.6374,
+  "weighted_f1": 0.64,
+  "base_model": "google/flan-t5-small",
+  "train_rows_used": 360,
+  "test_rows_used": 120
+}
