@@ -166,3 +166,72 @@ This repository demonstrates **real LLM training**, not just API prompting. The 
 - `Accuracy = 0.6833`
 - `Macro F1 = 0.6374`
 - `Weighted F1 = 0.6400`
+
+### Why this project matters
+
+This repository shows a practical scenario where an LLM is not only prompted, but actually **adapted through training** to learn a severity classification behavior.
+
+In practical terms:
+
+- the model reads an incident narrative;
+- maps it to `critical`, `high`, or `normal`;
+- learns this pattern through supervised fine-tuning;
+- and can then be served in an interactive app.
+
+### How the dataset was built
+
+The dataset is synthetic, but controlled and reproducible. It was designed to simulate operational and support incidents with:
+
+- affected systems
+- occurrence location
+- observed symptom
+- business impact
+- urgency signal
+
+Each sample receives a severity label:
+
+- `critical`
+  when there is broad unavailability, regulatory exposure, or full interruption
+- `high`
+  when there is major degradation, relevant delay, or operational workaround
+- `normal`
+  when the impact is localized, reversible, or low urgency
+
+### Techniques used
+
+- synthetic data generation with controlled semantic rules
+- `instruction formatting` to cast classification as a text-to-text task
+- efficient fine-tuning with `LoRA`
+- supervised training with `Seq2SeqTrainer`
+- held-out evaluation on test data
+- local serving of the trained adapter
+
+### Interpretation of the results
+
+For a lightweight fine-tuning setup, with a relatively small synthetic dataset and a compact base model, the result shows that the model learns a meaningful share of the severity pattern.
+
+The goal here is not to beat large-scale benchmarks, but to demonstrate:
+
+- real LLM adaptation
+- a reproducible training pipeline
+- objective evaluation
+- inference-ready artifacts
+
+### Generated artifacts
+
+- `data/raw/incident_severity_synthetic.csv`
+- `data/processed/train.csv`
+- `data/processed/valid.csv`
+- `data/processed/test.csv`
+- `data/processed/metrics.json`
+- `data/processed/test_predictions.csv`
+- `artifacts/severity_llm_lora/`
+
+### Interface
+
+The `Streamlit` app allows you to:
+
+- retrain/update the adapter
+- test a new incident manually
+- inspect predicted samples from the test set
+- review the current trained metrics

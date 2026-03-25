@@ -40,10 +40,10 @@ st.markdown(
 )
 
 if st.button("Treinar / atualizar modelo"):
-    run_pipeline()
+    run_pipeline(force_retrain=True)
 
 if not METRICS_PATH.exists() or not PREDICTIONS_PATH.exists() or not MODEL_DIR.exists():
-    run_pipeline()
+    run_pipeline(force_retrain=True)
 
 summary = json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
 metrics = json.loads(METRICS_PATH.read_text(encoding="utf-8"))
